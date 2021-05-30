@@ -1,0 +1,81 @@
+﻿@model IEnumerable<FreelancerSystem.Models.Post>
+
+@{
+    ViewBag.Title = "GetAllPost";
+}
+
+<h2>History Posts</h2>
+
+
+
+
+@foreach (var item in Model)
+{
+
+    <br />       
+    <div class="card" style="border-radius:10px;">
+        <div class="card-header">
+            <h4 class="card-title" style="text-align:center">
+                @Html.DisplayFor(modelItem => item.Title)
+            </h4>
+        </div>
+        <div class="card-body">
+            <p class="card-text" style="text-align:center;font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif">
+                @Html.DisplayFor(modelItem => item.postDescription)
+            </p>
+
+            <div class="row">
+                <div class="col-4"><div class="card-subtitle mb-2 text-muted">Author  : @Html.DisplayFor(modelItem => item.ClientName)</div></div>
+                <div class="col-4"><div class="card-subtitle mb-2 text-muted">Date  :@Html.DisplayFor(modelItem => item.Creation_Date)</div></div>
+            </div>
+            <div class="row">
+                <div class="col-4"><div class="card-subtitle mb-2 text-muted">Job budget : @Html.DisplayFor(modelItem => item.JobBudget)</div></div>
+                <div class="col-4"><div class="card-subtitle mb-2 text-muted">typeJob  :@Html.DisplayFor(modelItem => item.JopType)</div></div>
+            </div>
+            
+            <div class="row">
+                <div class="col-10">
+                    <button class="btn btn-default" style="margin:6px">
+                        @Html.ActionLink("Edit","EditPost",new { id=item.postId})
+                    </button>
+                    <button class="btn btn-default" style="margin:6px">
+                        @Html.ActionLink("Delete", "DeletePost", new { id = item.postId})
+                    </button>
+                </div>
+                <div class="col-2">
+                    <div class="row"><p style="margin-left:7px;">state</p></div>
+                    @{
+                        
+                        if (item.IsAprroved == true)
+                        {
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="green" class="bi bi-lightning-charge-fill" viewBox="0 0 16 16">
+                                <path d="M11.251.068a.5.5 0 0 1 .227.58L9.677 6.5H13a.5.5 0 0 1 .364.843l-8 8.5a.5.5 0 0 1-.842-.49L6.323 9.5H3a.5.5 0 0 1-.364-.843l8-8.5a.5.5 0 0 1 .615-.09z" />
+                            </svg>
+                        }
+                        else
+                        {
+
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="red" class="bi bi-lightning-charge-fill" viewBox="0 0 16 16">
+                                <path d="M11.251.068a.5.5 0 0 1 .227.58L9.677 6.5H13a.5.5 0 0 1 .364.843l-8 8.5a.5.5 0 0 1-.842-.49L6.323 9.5H3a.5.5 0 0 1-.364-.843l8-8.5a.5.5 0 0 1 .615-.09z" />
+                            </svg>
+                        }
+                    }
+                </div>
+                
+
+            </div>
+            
+        
+          
+        
+           
+
+
+
+        </div>
+    </div>
+    
+       
+}
+
+

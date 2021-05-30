@@ -1,0 +1,75 @@
+﻿@model IEnumerable<FreelancerSystem.Models.Post>
+
+@{
+    ViewBag.Title = "AllPost";
+}
+
+<h2>AllPost</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ClientId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.JopType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.JobBudget)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Creation_Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NumProposal)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsAprroved)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.postDescription)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ClientId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.JopType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.JobBudget)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Creation_Date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NumProposal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsAprroved)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.postDescription)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.postId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.postId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.postId })
+        </td>
+    </tr>
+}
+
+</table>

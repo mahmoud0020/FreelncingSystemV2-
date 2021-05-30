@@ -1,0 +1,69 @@
+﻿@model FreelancerSystem.Models.ApplicationUser
+
+@{
+    ViewBag.Title = "ClientInformation";
+}
+
+
+
+<div style="justify-content:center">
+    <div class="card" style="margin:50px">
+        <div class="card-header" style="text-align:center">
+            <h3>Profile</h3>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <img src="@Url.Action("UserPhoto","Client")" , style="width:160px;height:160px;margin:auto;border-radius:100px;" />
+
+            </div>
+            <dl class="row">
+                
+                <dt class="col-sm-3">User Name</dt>
+                <dd class="col-sm-9">
+                    <dl class="row">
+                        <dt class="col-sm-8">@Html.DisplayFor(model => model.UserName)</dt>
+                    </dl>
+                </dd>
+                <dt class="col-sm-3">First Name</dt>
+                <dd class="col-sm-9">
+                    <dl class="row">
+                        <dt class="col-sm-8">@Html.DisplayFor(model => model.FirstName)</dt>
+                    </dl>
+                </dd>
+                <dt class="col-sm-3">Last Name</dt>
+                <dd class="col-sm-9">
+                    <dl class="row">
+                        <dt class="col-sm-8">@Html.DisplayFor(model => model.LastName)</dt>
+                    </dl>
+                </dd>
+                <dt class="col-sm-3">Your Email</dt>
+                <dd class="col-sm-9">
+                    <dl class="row">
+                        <dt class="col-sm-8">@Html.DisplayFor(model => model.Email)</dt>
+                    </dl>
+                </dd>
+                <dt class="col-sm-3"> Phone </dt>
+                <dd class="col-sm-9">
+                    <dl class="row">
+                        <dt class="col-sm-8">@Html.DisplayFor(model => model.phone)</dt>
+                    </dl>
+                </dd>
+
+
+            </dl>
+
+            <button type="button" class=" btn btn-default ">
+                @Html.ActionLink("Update Information", "EditInfo", new { id = Model.Id })
+            </button>
+            <button type="button" class=" btn btn-default ">
+                @Html.ActionLink("Change Password", "ChangePassword", "Manage", htmlAttributes: new { title = "Manage" })
+            </button>
+        </div>
+    </div>
+    </div>
+    
+
+<p>
+    @Html.ActionLink("Edit", "EditInfo", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

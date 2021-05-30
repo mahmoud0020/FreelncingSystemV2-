@@ -1,0 +1,135 @@
+﻿<!DOCTYPE html>
+@RenderSection("scripts", required: false)
+<html>
+<head>
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+
+    <!-- Font Awesome JS -->
+    <!-- jQuery CDN - Slim version (=without AJAX) -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <!-- Popper.JS -->
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="~/Content/DashBoardLayout.css" />
+    <link rel="stylesheet" href="~/Content/fontawesome.css" />
+    <script src="~/Content/solid.min.js"></script>
+    <script src="~/Content/jQuery.js"></script>
+    <script src="~/Content/fontawesome.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar').toggleClass('active');
+            });
+        });
+       
+    
+    </script>
+    <link rel="stylesheet" href="~/Content/bootstrap.min.css" />
+    <style>
+        a{
+            text-decoration:none
+        }
+        a:hover{
+            text-decoration:none
+        }
+        .wrapper.sidebar{
+            
+        }
+        #sidebar ul li.active > a {
+            background-color: #16c0f2;
+        }
+        .sidebar {
+            background-color: aqua;
+        }
+        #sidebar .sidebar-header {
+            background-color: #16c0f2;
+            border-radius:10px;
+        }
+        .list-unstyled {
+            background-color: #5BC0DE;
+        }
+        #sidebar {
+            background-color: #5BC0DE;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <!-- Sidebar  -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <h4>Freelancer Dashboard</h4>
+            </div>
+
+            <ul class="list-unstyled components">
+                
+                <li>
+                    @Html.ActionLink("Profile", "ClientInformation", "Client")
+                </li>
+                <li>
+                    @Html.ActionLink("posts","createPost","Client")
+                </li>
+                <li>
+                    @Html.ActionLink("My Posts", "ClientInformation", "Client")
+                </li>
+                <li>
+                    @Html.ActionLink("Recived Proposals", "ClientInformation", "Client")
+                </li>
+                <li>
+                    @Html.ActionLink("Home", "ClientInformation", "Client")
+                </li>
+            </ul>
+
+            
+        </nav>
+
+        <!-- Page Content  -->
+        <div id="content">
+           
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+
+                    <button type="button" id="sidebarCollapse" class="btn btn-info">
+                        <i class="fas fa-align-left"></i>
+                        <span>Toggle Sidebar</span>
+                    </button>
+                    
+                    <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="fas fa-align-justify"></i>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="nav navbar-nav ml-auto">
+                            <li class="nav-item active">
+                                @Html.ActionLink("Home", "Index", "Home")
+                            </li>
+                            <li class="nav-item">
+                                @Html.ActionLink("Home", "Index", "Home")
+                            </li>
+                            <li class="nav-item">
+                                @Html.ActionLink("Home", "Index", "Home")
+                            </li>
+                            <li class="nav-item">
+                                @Html.ActionLink("Home", "Index", "Home")
+                            </li>
+
+                        </ul>
+                        @Html.Partial("_LoginPartial");
+                    </div>
+
+                </div>
+            </nav>
+            <div>
+                @RenderBody()
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>

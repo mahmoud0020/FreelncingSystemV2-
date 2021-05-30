@@ -1,0 +1,27 @@
+﻿@{
+    if (User.Identity.IsAuthenticated)
+    {
+        if (this.User.IsInRole("Admins"))
+        {
+            Layout = "~/Views/Shared/_DashBoardLayout.cshtml";
+        }
+        else if (this.User.IsInRole("Freelancer"))
+        {
+            Layout = "~/Views/Shared/_WallLayout.cshtml";
+        }
+        else if (this.User.IsInRole("Client"))
+        {
+            Layout = "~/Views/Shared/_FactoryLayout.cshtml";
+        }
+        else
+        {
+            Layout = "~/Views/Shared/_WallLayout.cshtml";
+        }
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_WallLayout.cshtml";
+    }
+
+
+}

@@ -1,0 +1,82 @@
+﻿@model FreelancerSystem.Models.Post
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Post</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ClientId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ClientId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.JopType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.JopType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.JobBudget)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.JobBudget)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Creation_Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Creation_Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NumProposal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NumProposal)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsAprroved)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsAprroved)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.postDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.postDescription)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.postId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
